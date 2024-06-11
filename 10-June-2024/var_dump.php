@@ -13,5 +13,6 @@
 
     print_r($z);        // print_r() only for describing an array, it can not describe variables.
     
-
+    echo "<br>";
+    echo gettype($x);       // gettype can only show the type
 ?>
