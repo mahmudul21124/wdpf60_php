@@ -15,7 +15,7 @@
 
         function factCheck($n){
             $fact = 1;
-            for ($i = $n; $i>1; $i--){
+            for ($i = $n; $i >= 1; $i--){
                 $fact = $fact * $i;
             } 
             return "The factorial of " . $n . " is<b> ". $fact ."</b>";
