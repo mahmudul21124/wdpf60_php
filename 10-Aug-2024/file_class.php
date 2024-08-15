@@ -34,8 +34,8 @@
             else{
                 if(move_uploaded_file($tmpname, "uploads/". $name)){
                     echo "Uploaded successfully";
-            }   
-                    }
+                }   
+            }
                 
             
 
