@@ -18,11 +18,11 @@
             $sql = "INSERT INTO categories (id, name) VALUES (NULL, '$category')";
 
             $result = $db->query($sql);
-            if($db->affected_rows){
-                echo "Successfully added";
+            if($db->error){
+                echo "Failed";
             }
             else{
-                echo "Failed";
+                echo "Successfully added";
             }
         }
 

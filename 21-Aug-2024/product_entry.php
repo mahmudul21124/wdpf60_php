@@ -11,6 +11,7 @@
 
     <?php
 
+        // Categoty list collect
         $sql = "SELECT * FROM categories";
         $cats = $db->query($sql);
 
@@ -20,11 +21,11 @@
             $sql = "INSERT INTO product (Id, Product_name, Product_details, Product_price, Product_quantity, Product_category) VALUES (NULL, '$product', '$details', '$price', '$quantity', '$category')";
 
             $result = $db->query($sql);
-            if($db->affected_rows){
-                echo "Successfully added";
+            if($db->error){
+                echo "Failed";
             }
             else{
-                echo "Failed";
+                echo "Successfully added";
             }
         }
     ?>

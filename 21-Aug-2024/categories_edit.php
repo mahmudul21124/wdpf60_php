@@ -18,11 +18,11 @@
             $sql = "UPDATE categories SET name = '$category' WHERE id='$id'";
 
             $result = $db->query($sql);
-            if($db->affected_rows){
-                echo "Successfully Updated";
+            if($db->error){
+                echo "Failed";
             }
             else{
-                echo "Failed";
+                echo "Successfully added";
             }
         }
 

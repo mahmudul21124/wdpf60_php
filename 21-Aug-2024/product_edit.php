@@ -10,21 +10,26 @@
     <h3>Product Edit</h3>
 
     <?php
+        // Categoty list collect
+        $sql = "SELECT * FROM categories";
+        $cats = $db->query($sql);
+
+        //Pick id from URL and Form
         $id = $_REQUEST['pid'];
         
         
         if(isset($_REQUEST['update'])){
             extract($_REQUEST);
 
-            $sql = "UPDATE product SET Product_name = '$product', Product_details =  '$details', Product_price = '$price', Product_quantity = '$quantity' WHERE Id='$id'";
+            $sql = "UPDATE product SET Product_name = '$product', Product_details =  '$details', Product_price = '$price', Product_quantity = '$quantity', Product_category = '$category' WHERE Id='$id'";
 
             
             $result = $db->query($sql);
-            if($db->affected_rows){
-                echo "Successfully Updated";
+            if($db->error){
+                echo "Failed";
             }
             else{
-                echo "Failed";
+                echo "Successfully added";
             }
         }
 
@@ -34,7 +39,6 @@
         $data = $db->query($sql);
         $row = $data->fetch_object();
         // print_r($row);
-
     ?>
 
     <form method="post ">
@@ -44,6 +48,14 @@
         Product Details: <br><textarea name="details" placeholder="Enter product details"><?php echo $row->Product_details?></textarea><br>
         Product Price: <br><input type="text" name="price" placeholder="Enter product price" value="<?php echo $row->Product_price?>"><br>
         Product Quantity: <br><input type="number" name="quantity" placeholder="Enter product quantity" value="<?php echo $row->Product_quantity?>"><br>
+        Product Category: <br> 
+        <select name="category">
+            <option value="">Select One</option>
+            <?php 
+                while($cat = $cats->fetch_assoc()){?>
+                    <option value="<?php echo $cat['id']?>" <?php echo $row->Product_category == $cat['id']? "selected" : " "; ?>><?php echo $cat['name']?></option>;
+        <?php   } ?>
+        </select><br>
         <input type="submit" name="update" value="UPDATE">
         <input type="hidden" name="pid" value="<?php echo $id?>">
         </fieldset>
