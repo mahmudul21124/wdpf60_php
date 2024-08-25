@@ -41,6 +41,8 @@
 
       <?php  } ?>
     </table>
+    <br>
+    <a href="../25-Aug-2024/manufacturer.php">All Manufacturers</a>
     
 </body>
 </html>

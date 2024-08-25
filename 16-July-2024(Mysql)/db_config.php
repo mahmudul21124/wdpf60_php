@@ -1,6 +1,6 @@
 <?php
 
-    $host = "localhost:3309";
+    $host = "localhost:3306";
     $user = "root";
     $pass = "";
     $db = "wdpf60";

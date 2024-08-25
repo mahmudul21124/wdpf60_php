@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2024 at 06:03 AM
+-- Generation Time: Aug 25, 2024 at 09:18 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -20,6 +20,18 @@ SET time_zone = "+00:00";
 --
 -- Database: `wdpf60`
 --
+
+DELIMITER $$
+--
+-- Procedures
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_user` (IN `em` VARCHAR(50), IN `pass` CHAR(32), IN `full` VARCHAR(100))   INSERT INTO users (id, email, password, fullname) VALUES (NULL, em, pass, full)$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_user1` (IN `em` VARCHAR(50), IN `pass` CHAR(32), IN `full` VARCHAR(100))   INSERT INTO users (id, email, password, fullname) VALUES (NULL, em, pass, full)$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_inventory` (OUT `inv` INT)   SELECT 45 INTO inv$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -89,7 +101,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `fullname`) VALUES
-(1, 'saif@gmail.com', 'e99a18c428cb38d5f260853678922e03', 'Saif Jahan Dewana');
+(1, 'saif@gmail.com', 'e99a18c428cb38d5f260853678922e03', 'Saif Jahan Dewana'),
+(2, 'rakib@gmail.com', 'abc123', 'Abdur Rakib'),
+(3, 'rummana@gmail.com', 'abc123', 'Rummana');
 
 --
 -- Indexes for dumped tables
@@ -134,7 +148,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
