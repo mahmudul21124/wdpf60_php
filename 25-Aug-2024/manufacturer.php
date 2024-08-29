@@ -20,7 +20,7 @@
             $mysqli->query("DELETE FROM manufacturer WHERE id ='$id'");
             
             if($mysqli->affected_rows){
-                echo "<h1 class='g'> Successfully Deleted";
+                echo "<h1 class='g'> Successfully Deleted</h1>";
             }
         }
     ?>
