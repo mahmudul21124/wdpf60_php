@@ -1,3 +1,14 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['email']) && !isset($_SESSION['utype'])){
+    header("Location:index.php");
+    }
+
+    if($_SESSION['utype']!=2){
+        header("Location:index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +51,7 @@
                         <div class="row align-items-center ">
                             <div class="col-md-8">
                                 <div class="page-title-box">
-                                    <h4 class="page-title">Dashboard</h4>
+                                    <h4 class="page-title">Doctor Dashboard</h4>
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item active">Welcome to Zegva Dashboard</li>
                                     </ol>
