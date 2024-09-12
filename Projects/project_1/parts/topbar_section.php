@@ -5,10 +5,10 @@
                 <div class="topbar__left">
                     <ul>
                         <li>
-                            Call Us: +1 800 123 456 789
+                            Call Us: +880198-8674940
                         </li>
                         <li>
-                            - Mail Us: Itcroc@mail.com
+                            - Mail Us: mahmudul21124@gmail.com
                         </li>
                     </ul>
                 </div>
@@ -19,7 +19,7 @@
                         <i class="icofont-location-pin"></i>
                     </div>
                     <div class="topbar__text">
-                        <p>684 West College St. Sun City, USA</p>
+                        <p>1430 Narayanganj, Dhaka, Bangladesh</p>
                     </div>
                     <div class="topbar__list">
                         <ul>
