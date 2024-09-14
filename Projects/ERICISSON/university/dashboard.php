@@ -29,9 +29,9 @@
     <?php //include "parts/theme_panel.php" ?>
     <!-- End Theme panel do not add in project -->
 
-    <!-- Start Quick menu with more function -->
+    <!-- Start Quick menu right side with more function -->
     <?php //include "parts/quick_menu.php" ?>
-    <!-- End Quick menu with more function -->
+    <!-- End Quick menu right side with more function -->
 
     <!-- Start Main leftbar navigation -->
     <?php include "parts/leftbar_main_navigation.php" ?>
