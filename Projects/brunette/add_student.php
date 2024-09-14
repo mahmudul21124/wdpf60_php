@@ -68,7 +68,7 @@
                                     <div class="card">
                                         <div class="card-body">
 
-                                            <h4 class="mt-0 header-title">Teacher Entry Form</h4>
+                                            <h4 class="mt-0 header-title">Student Entry Form</h4>
                                             <?php
                                             if (isset($_POST['submit'])) {
                                                 extract($_POST);
@@ -77,11 +77,11 @@
 
                                                 $photo_name = $_FILES['photo']['name'];
                                                 $photo_tname = $_FILES['photo']['tmp_name'];
-                                                $path = "teachers/";
+                                                $path = "students/";
                                                 $url = $path . $photo_name;
 
                                                 if (move_uploaded_file($photo_tname, $path . $photo_name)) {
-                                                    $db->query("INSERT INTO teachers(id, teacherName, department, photo, address, fees, contact_no, email, password) VALUES (NULL, '$department', '$name', '$photo_name', '$address', '$fees', '$contact', '$email', '$pass')");
+                                                    $db->query("INSERT INTO students(id, roll_no, name, parents_name, photo, department, class, gender, dob, contact_no, address,  email, password) VALUES (NULL, $roll_no, '$name', '$pname' '$photo_name', '$department', '$cls', '$gender', '$bdate', '$contact', '$address', '$email', '$pass')");
 
                                                     if ($db->affected_rows) {
                                                         echo "INSERTED";
@@ -101,14 +101,48 @@
                                                     ?>
                                                     <select name="department" id="" class="form-control">
                                                         <option value="">Select One</option>
-                                                    <?php while($row = $sql->fetch_assoc()){ ?>
-                                                        <option value="<?php echo $row['department'] ?>"><?php echo $row['department'] ?></option>
-                                                    <?php } ?>
+                                                        <?php while ($row = $sql->fetch_assoc()) { ?>
+                                                            <option value="<?php echo $row['department'] ?>"><?php echo $row['department'] ?></option>
+                                                        <?php } ?>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Teacher Name</label>
-                                                    <input type="text" class="form-control" required placeholder="Enter Doctor Name" name="name" />
+                                                    <label>Student Name</label>
+                                                    <input type="text" class="form-control" required placeholder="Enter Students Name" name="name" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Roll No</label>
+                                                    <input type="text" class="form-control" required placeholder="Enter Roll No" name="roll_no" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Class</label>
+                                                    <?php
+                                                    include_once "dbconfig.php";
+                                                    $sql = $db->query("SELECT class FROM class");
+                                                    ?>
+                                                    <select name="cls" id="" class="form-control">
+                                                        <option value="">Select One</option>
+                                                        <?php while ($row = $sql->fetch_assoc()) { ?>
+                                                            <option value="<?php echo $row['class'] ?>"><?php echo $row['class'] ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Gender</label><br>
+                                                    Male <input type="radio" class="form-control-m" required  name="gender" value="Male"/>
+                                                    Female <input type="radio" class="form-control-m" required  name="gender" value="Female"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Parents Name</label>
+                                                    <input type="text" class="form-control" required placeholder="Enter Parents Name" name="pname" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Date of Birth</label>
+                                                    <input type="date" class="form-control" required  name="bdate" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Contact</label>
+                                                    <input type="text" class="form-control" required placeholder="Enter Contact Number" name="contact" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Address</label>
@@ -121,16 +155,8 @@
                                                     <input type="file" class="form-control" name="photo" required />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Teacher Fees</label>
-                                                    <input type="text" class="form-control" required placeholder="Enter Doctor Fees" name="fees" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Contact Number</label>
-                                                    <input type="text" class="form-control" required placeholder="Enter Contact Number" name="contact" />
-                                                </div>
-                                                <div class="form-group">
                                                     <label>Email</label>
-                                                    <input type="email" class="form-control" required placeholder="Enter Email" name="email" />
+                                                    <input type="email" class="form-control" required placeholder="Enter Email address" name="email" />
                                                 </div>
 
                                                 <div class="form-group">

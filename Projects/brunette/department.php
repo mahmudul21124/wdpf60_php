@@ -64,8 +64,13 @@
                             <h5 class="hk-sec-title">Department</h5>
                             <div class="row">
                                 <div class="col-sm">
-                                    <div class="table-wrap">
-                                        <table id="datable_3" class="table table-hover w-100 display">
+                                 <?php  
+                                    include_once "dbconfig.php";
+                                    $sql = $db->query("SELECT * FROM department");
+                                 ?>
+                                    
+                                <div class="table-wrap">
+                                        <table id="datable_3" class="table table-neon text-info w-100 display">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
@@ -74,11 +79,13 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            <?php while($row = $sql->fetch_assoc()){ ?>
                                                 <tr>
-                                                    <td>Tiger Nixon</td>
-                                                    <td>System Architect</td>
-                                                    <td>Edinburgh</td>
+                                                    <td><?php echo $row['id'] ?></td>
+                                                    <td><?php echo $row['department'] ?></td>
+                                                    <td class="text-center"><a href="" class="text-info">Edit</a> | <a href="" class="text-info">Delete</a></td>
                                                 </tr>
+                                            <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>

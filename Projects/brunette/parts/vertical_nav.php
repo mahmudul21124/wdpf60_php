@@ -9,8 +9,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link link-with-badge" href="javascript:void(0);" data-toggle="collapse" data-target="#app_drp">
-                        <span class="feather-icon"></span>
-                        <span class="nav-link-text">Teachers</span>
+                    <span class="feather-icon"><i data-feather="users"></i></span>
+                    <span class="nav-link-text">Teachers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span class="feather-icon text-right"><i data-feather="menu"></i></span>
                     </a>
                     <ul id="app_drp" class="nav flex-column collapse collapse-level-1">
                         <li class="nav-item">
@@ -19,10 +20,33 @@
                                     <a class="nav-link" href="department.php">Department</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="add_teacher.php">Add Teacher</a>
+                                    <a class="nav-link" href="add_teacher.php">Add Teacher &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="feather-icon "><i data-feather="user-plus"></i></span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="manage_teacher.php">Manage Teacher</a>
+                                    <a class="nav-link" href="manage_teacher.php">Manage Teacher &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="feather-icon "><i data-feather="user-check"></i></span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link link-with-badge" href="javascript:void(0);" data-toggle="collapse" data-target="#app_drp">
+                    <span class="feather-icon"><i data-feather="user"></i></span>
+                    <span class="nav-link-text">Students &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span class="feather-icon text-right"><i data-feather="menu"></i></span>
+                    </a>
+                    <ul id="app_drp" class="nav flex-column collapse collapse-level-1">
+                        <li class="nav-item">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="class.php">Class</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="add_student.php">Add Student &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="feather-icon "><i data-feather="user-plus"></i></span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="manage_student.php">Manage Student&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="feather-icon "><i data-feather="user-check"></i></span></a>
                                 </li>
                             </ul>
                         </li>

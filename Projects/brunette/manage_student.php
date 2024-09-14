@@ -67,7 +67,7 @@
                                     <div class="table-wrap">
                                     <?php 
                                         include_once "dbconfig.php";
-                                        $sql = $db->query("SELECT * FROM teachers");
+                                        $sql = $db->query("SELECT * FROM students");
 
                                     ?>
 
@@ -75,11 +75,15 @@
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Teacher Name</th>
+                                                    <th>Roll No</th>
+                                                    <th>Student Name</th>
                                                     <th>Department</th>
+                                                    <th>Class</th>
+                                                    <th>Parents Name</th>
                                                     <th>Photo</th>
                                                     <th>Address</th>
-                                                    <th>Fees</th>
+                                                    <th>Gender</th>
+                                                    <th>Date of Birth</th>
                                                     <th>Contact</th>
                                                     <th>Email</th>
                                                     <th>Action</th>
@@ -89,11 +93,15 @@
                                             <?php while($row = $sql->fetch_assoc()){ ?>
                                                 <tr>
                                                     <td><?php echo $row['id'] ?></td>
-                                                    <td><?php echo $row['teacherName'] ?></td>
+                                                    <td><?php echo $row['roll_no'] ?></td>
+                                                    <td><?php echo $row['name'] ?></td>
                                                     <td><?php echo $row['department'] ?></td>
+                                                    <td><?php echo $row['class'] ?></td>
+                                                    <td><?php echo $row['parents_name'] ?></td>
                                                     <td><?php echo $row['photo'] ?></td>
                                                     <td><?php echo $row['address'] ?></td>
-                                                    <td><?php echo $row['fees'] ?></td>
+                                                    <td><?php echo $row['gender'] ?></td>
+                                                    <td><?php echo $row['dob'] ?></td>
                                                     <td><?php echo $row['contact_no'] ?></td>
                                                     <td><?php echo $row['email'] ?></td>
                                                     <td><a href="" class="text-info">Edit</a> | <a href="" class="text-info">Delete</a></td>
