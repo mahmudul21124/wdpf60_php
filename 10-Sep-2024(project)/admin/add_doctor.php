@@ -10,7 +10,7 @@
     <meta content="Themesdesign" name="author" />
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
-    <link href="plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="../plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css">
@@ -75,24 +75,24 @@
 
                                     <h4 class="mt-0 header-title">Doctor Entry Form</h4>
                                     <?php
-                                    if (isset($_POST['submit'])) {
-                                        extract($_POST);
-                                        include_once "dbconfig.php";
-                                        mysqli_real_escape_string($db, $details);
+                                        if(isset($_POST['submit'])){
+                                            extract($_POST);
 
-                                        $photo_name = $_FILES['photo']['name'];
-                                        $photo_tname = $_FILES['photo']['tmp_name'];
-                                        $path = "doctors/";
-                                        $url = $path . $photo_name;
+                                            include_once "dbconfig.php";
 
-                                        if (move_uploaded_file($photo_tname, $path . $photo_name)) {
-                                            $db->query("INSERT INTO doctors(id, specilization, doctorName, address, photo, docFees, contactno, details, docEmail, password) VALUES (NULL, '$specilization', '$docname', '$address', '$photo_name', '$docfees', '$contact', '$details', '$email', '$pass')");
+                                            $photo_name = $_FILES['photo']['name'];
+                                            $photo_tname = $_FILES['photo']['tmp_name'];
+                                            $path = "doctors/";
+                                            $url = $path.$photo_name;
 
-                                            if ($db->affected_rows) {
-                                                echo "INSERTED";
+                                            if(move_uploaded_file($photo_tname, $path.$photo_name)){
+                                                $db->query("INSERT INTO doctors(id, specilization, doctorName, address, photo, docFees, contactno, docEmail, password) VALUES (NULL, '$specilization', '$docname', '$address', '$photo_name', '$docfees', '$contact', '$email', '$pass')");
+
+                                                if($db->affected_rows){
+                                                    echo "INSERTED";
+                                                }
                                             }
                                         }
-                                    }
                                     ?>
                                     <p class="sub-title"></p>
 
@@ -100,14 +100,14 @@
                                         <div class="form-group">
                                             <label>Specilization</label>
                                             <?php
-                                            include_once "dbconfig.php";
-                                            $sql = $db->query("SELECT specilization FROM doctorspecilization");
+                                                include_once "dbconfig.php";
+                                                $sql = $db->query("SELECT specilization FROM doctorspecilization");
                                             ?>
                                             <select name="specilization" id="" class="form-control">
-                                                <option value="">Select One</option>
-                                                <?php while ($row = $sql->fetch_assoc()) { ?>
-                                                    <option value="<?php echo $row['specilization'] ?>"><?php echo $row['specilization'] ?></option>
-                                                <?php } ?>
+                                            <option value="">Select One</option>
+                                            <?php while($row = $sql->fetch_assoc()){ ?>
+                                            <option value="<?php echo $row['specilization'] ?>"><?php echo $row['specilization'] ?></option>
+                                            <?php } ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -126,7 +126,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Doctor Fees</label>
-                                            <input type="text" class="form-control" required placeholder="Enter Doctor Fees" name="docfees" />
+                                            <input type="text" class="form-control" required placeholder="Enter Doctor Fees" name="docfees"/>
                                         </div>
                                         <div class="form-group">
                                             <label>Contact Number</label>
@@ -136,12 +136,7 @@
                                             <label>Email</label>
                                             <input type="email" class="form-control" required placeholder="Enter Email" name="email" />
                                         </div>
-                                        <div class="form-group">
-                                            <label>Doctor Profile</label>
-                                            <div>
-                                                <textarea class="form-control" rows="5" placeholder="Enter Details" name="details" id="details"></textarea>
-                                            </div>
-                                        </div>
+
                                         <div class="form-group">
                                             <label>Password</label>
                                             <div>
@@ -180,7 +175,7 @@
         <!-- ============================================================== -->
         <!-- End Right content here -->
         <!-- ============================================================== -->
-        <!-- Footer -->
+         <!-- Footer -->
         <?php include "includes/footer.php"; ?>
 
     </div>
@@ -193,71 +188,19 @@
     <script src="assets/js/jquery.slimscroll.js"></script>
     <script src="assets/js/waves.min.js"></script>
 
-    <script src="plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="../plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 
     <!-- Parsley js -->
-    <script src="plugins/parsleyjs/parsley.min.js"></script>
+    <script src="../plugins/parsleyjs/parsley.min.js"></script>
 
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
 
     <script>
         $(document).ready(function() {
             $('form').parsley();
         });
     </script>
-    
-    <!-- Editor js -->
-    <script src="plugins/tinymce/tinymce.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            if ($("#details").length > 0) {
-                tinymce.init({
-                    selector: "textarea#details",
-                    theme: "modern",
-                    height: 300,
-                    plugins: [
-                        "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
-                        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-                        "save table contextmenu directionality emoticons template paste textcolor"
-                    ],
-                    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
-                    style_formats: [{
-                        title: 'Bold text',
-                        inline: 'b'
-                    }, {
-                        title: 'Red text',
-                        inline: 'span',
-                        styles: {
-                            color: '#ff0000'
-                        }
-                    }, {
-                        title: 'Red header',
-                        block: 'h1',
-                        styles: {
-                            color: '#ff0000'
-                        }
-                    }, {
-                        title: 'Example 1',
-                        inline: 'span',
-                        classes: 'example1'
-                    }, {
-                        title: 'Example 2',
-                        inline: 'span',
-                        classes: 'example2'
-                    }, {
-                        title: 'Table styles'
-                    }, {
-                        title: 'Table row 1',
-                        selector: 'tr',
-                        classes: 'tablerow1'
-                    }]
-                });
-            }
-        });
-    </script>
-
-    <!-- App js -->
-    <script src="assets/js/app.js"></script>
 
 </body>
 
