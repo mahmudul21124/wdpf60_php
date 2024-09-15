@@ -84,11 +84,11 @@
                                     <p class="sub-title">The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
                                     </p>
 
-        <?php
-            require_once "dbconfig.php";
+                                    <?php
+                                    require_once "dbconfig.php";
 
-            $sql = $db->query("SELECT * FROM doctorspecilization");
-        ?>
+                                    $sql = $db->query("SELECT * FROM doctorspecilization");
+                                    ?>
                                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                         <thead>
                                             <tr>
@@ -99,20 +99,21 @@
                                         </thead>
 
                                         <tbody>
-                <?php 
-                $sn =1;
-                while($row = $sql->fetch_assoc()){ 
-                ?>
-                                            <tr>
-                                                <td><?php echo $sn ?></td>
-                                                <td><?php echo $row['specilization'] ?></td>
-                                                <td class="text-center">
-                                                    <a href="" class="btn btn-outline-primary waves-effect waves-light">Edit</a> | <a href="" class="btn btn-outline-danger waves-effect waves-light">Delete</a>
-                                                </td>
-                                            </tr>
-                                            <?php 
-                                            $sn++;
-                                            } 
+                                            <?php
+                                            $sn = 1;
+                                            while ($row = $sql->fetch_assoc()) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $sn ?></td>
+                                                    <td class="spname"><?php echo $row['specilization'] ?></td>
+                                                    <td class="text-center">
+                                                        <a href="" class="btn btn-outline-primary waves-effect waves-light" data-toggle="modal" data-target=".sepcialization-edit-modal">Edit</a> |
+                                                        <a href="" id="btn1" class="btn btn-outline-danger waves-effect waves-light" data-toggle="modal" data-target=".sepcialization-edit-modal">Delete</a>
+                                                    </td>
+                                                </tr>
+                                            <?php
+                                                $sn++;
+                                            }
                                             ?>
                                         </tbody>
                                     </table>
@@ -123,6 +124,32 @@
                         <!-- end col -->
                     </div>
                     <!-- end row -->
+
+                    <!-- Specialization Edit Modal -->
+                    <div class="modal fade sepcialization-edit-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title mt-0" id="mySmallModalLabel">Edit Specialization</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="" method="post">
+                                        <div class="form-group">
+                                        <label>Specialization</label>
+                                        <input type="text" class="form-control spdisplay">
+                                        </div>
+                                        <input type="submit" name="update" class="btn btn-success" value="UPDATE">
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
 
                 </div>
                 <!-- container-fluid -->
@@ -169,6 +196,15 @@
 
     <!-- App js -->
     <script src="assets/js/app.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function(){
+                let abc = $(".spname").text();
+                $(".spdisplay").attr(abc);
+            })
+        });
+    </script>
 
 </body>
 
