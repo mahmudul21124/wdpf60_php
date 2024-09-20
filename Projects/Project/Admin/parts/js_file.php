@@ -33,3 +33,11 @@
 <!-- Init JavaScript -->
 <script src="dist/js/init.js"></script>
 <script src="dist/js/dashboard4-data.js"></script>
+
+<script src="vendors\bootstrap\dist\js/lib.vendor.bundle.js"></script>
+<script src="vendors\bootstrap\dist\js/counterup.bundle.js"></script>
+<script src="vendors\bootstrap\dist\js/apexcharts.bundle.js"></script>
+<script src="vendors\bootstrap\dist\js/summernote.bundle.js"></script>
+<script src="vendors\bootstrap\dist\js/core.js"></script>
+<script src="vendors\bootstrap\dist\js/index.js"></script>
+<script src="vendors\bootstrap\dist\js/summernote.js"></script>

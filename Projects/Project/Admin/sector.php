@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Brunette I Data Table</title>
+    <title>Department</title>
     <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
 
     <!-- Favicon -->
@@ -42,17 +42,17 @@
             <nav class="hk-breadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-light bg-transparent">
                     <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Manage_teacher</li>
+                    <li class="breadcrumb-item active" aria-current="page">Sector</li>
                 </ol>
             </nav>
             <!-- /Breadcrumb -->
 
             <!-- Container -->
-            <div class="container-fluid">
+            <div class="container">
 
                 <!-- Title -->
                 <div class="hk-pg-header">
-                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Manage_teacher</h4>
+                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Sector</h4>
                 </div>
                 <!-- /Title -->
 
@@ -61,26 +61,20 @@
                     <div class="col-xl-12">
                         
                         <section class="hk-sec-wrapper">
-                            <h5 class="hk-sec-title">Manage_teacher</h5>
+                            <h5 class="hk-sec-title">Sector</h5>
                             <div class="row">
                                 <div class="col-sm">
-                                    <div class="table-wrap">
-                                    <?php 
-                                        include_once "dbconfig.php";
-                                        $sql = $db->query("SELECT * FROM teachers");
-                                        $sn = 1;
-                                    ?>
-
+                                 <?php  
+                                    include_once "dbconfig.php";
+                                    $sql = $db->query("SELECT * FROM sector");
+                                 ?>
+                                    
+                                <div class="table-wrap">
                                         <table id="datable_3" class="table table-neon text-info w-100 display">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Teacher Name</th>
-                                                    <th>Department</th>
-                                                    <th>Address</th>
-                                                    <th>Fees</th>
-                                                    <th>Contact</th>
-                                                    <th>Email</th>
+                                                    <th>Sector</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -88,16 +82,10 @@
                                             <?php while($row = $sql->fetch_assoc()){ ?>
                                                 <tr>
                                                     <td><?php echo $row['id'] ?></td>
-                                                    <td><?php echo $row['name'] ?></td>
-                                                    <td><?php echo $row['department'] ?></td>
-                                                    <td><?php echo $row['address'] ?></td>
-                                                    <td><?php echo $row['fees'] ?></td>
-                                                    <td><?php echo $row['contact_no'] ?></td>
-                                                    <td><?php echo $row['email'] ?></td>
-                                                    <td><a href="" class="text-info">Edit</a> | <a href="" class="text-info">Delete</a></td>
+                                                    <td><?php echo $row['sector'] ?></td>
+                                                    <td class="text-center"><a href="" class="text-info">Edit</a> | <a href="" class="text-info">Delete</a></td>
                                                 </tr>
-                                            <?php $sn++;
-                                                    } ?>
+                                            <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>

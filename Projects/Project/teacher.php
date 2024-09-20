@@ -84,7 +84,7 @@
 								</li>
 							</ul>
 							<div class="edu_team_inner_box">
-								<img src="Admin/image/<?php echo $row['photo'] ?>" alt="img">
+								<img src="Admin/image/teacher/<?php echo $row['photo'] ?>" alt="img">
 							</div>
 						</div>
 					</div>

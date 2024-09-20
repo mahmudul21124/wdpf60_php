@@ -11,3 +11,7 @@
 
 <!-- Custom CSS -->
 <link href="dist/css/style.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="vendors\bootstrap\dist\css/bootstrap.min.css" />
+<link rel="stylesheet" href="vendors\bootstrap\dist\css/summernote.css" />
+<!-- <link rel="stylesheet" href="vendors\bootstrap\dist\css/style.min.css" /> -->

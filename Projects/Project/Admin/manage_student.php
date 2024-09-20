@@ -68,7 +68,7 @@
                                     <?php 
                                         include_once "dbconfig.php";
                                         $sql = $db->query("SELECT * FROM students");
-
+                                        $sn = 1;
                                     ?>
 
                                         <table id="datable_3" class="table table-neon text-info w-100 display">
@@ -80,7 +80,6 @@
                                                     <th>Department</th>
                                                     <th>Class</th>
                                                     <th>Parents Name</th>
-                                                    <th>Photo</th>
                                                     <th>Address</th>
                                                     <th>Gender</th>
                                                     <th>Date of Birth</th>
@@ -98,7 +97,6 @@
                                                     <td><?php echo $row['department'] ?></td>
                                                     <td><?php echo $row['class'] ?></td>
                                                     <td><?php echo $row['parents_name'] ?></td>
-                                                    <td><?php echo $row['photo'] ?></td>
                                                     <td><?php echo $row['address'] ?></td>
                                                     <td><?php echo $row['gender'] ?></td>
                                                     <td><?php echo $row['dob'] ?></td>
@@ -106,7 +104,8 @@
                                                     <td><?php echo $row['email'] ?></td>
                                                     <td><a href="" class="text-info">Edit</a> | <a href="" class="text-info">Delete</a></td>
                                                 </tr>
-                                            <?php } ?>
+                                            <?php $sn++;
+                                                } ?>
                                             </tbody>
                                         </table>
                                     </div>

@@ -39,7 +39,7 @@
                     <li class="has-mega gc_main_navigation"><a href="teacher.php" class="gc_main_navigation hover_color"> Teacher</a>
                     </li>
 
-                    <li class="has-mega gc_main_navigation"><a href="login.php" class="gc_main_navigation hover_color"> Login</a>
+                    <li class="has-mega gc_main_navigation"><a href="signin.php" class="gc_main_navigation hover_color"> Login</a>
                     </li>
 
                     <li class="has-mega gc_main_navigation"><a href="contact_us.php" class="gc_main_navigation hover_color">Contact Us</a>

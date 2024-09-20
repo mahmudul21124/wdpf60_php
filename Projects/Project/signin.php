@@ -67,8 +67,8 @@
                                         <select name="usertype" id="" class="form-control">
                                             <option value="">Select One</option>
                                             <option value="1">Admin</option>
-                                            <option value="2">Doctor</option>
-                                            <option value="3">Patient</option>
+                                            <option value="2">Teacher</option>
+                                            <option value="3">Student</option>
                                         </select>
                                     </div>
                                 </div>

@@ -67,7 +67,7 @@
                                     <div class="table-wrap">
                                     <?php 
                                         include_once "dbconfig.php";
-                                        $sql = $db->query("SELECT * FROM teachers");
+                                        $sql = $db->query("SELECT * FROM staff");
                                         $sn = 1;
                                     ?>
 
@@ -75,10 +75,9 @@
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Teacher Name</th>
-                                                    <th>Department</th>
-                                                    <th>Address</th>
-                                                    <th>Fees</th>
+                                                    <th>Staff Name</th>
+                                                    <th>Sector</th>
+                                                    <th>Shift</th>
                                                     <th>Contact</th>
                                                     <th>Email</th>
                                                     <th>Action</th>
@@ -89,9 +88,8 @@
                                                 <tr>
                                                     <td><?php echo $row['id'] ?></td>
                                                     <td><?php echo $row['name'] ?></td>
-                                                    <td><?php echo $row['department'] ?></td>
-                                                    <td><?php echo $row['address'] ?></td>
-                                                    <td><?php echo $row['fees'] ?></td>
+                                                    <td><?php echo $row['sector'] ?></td>
+                                                    <td><?php echo $row['shift'] ?></td>
                                                     <td><?php echo $row['contact_no'] ?></td>
                                                     <td><?php echo $row['email'] ?></td>
                                                     <td><a href="" class="text-info">Edit</a> | <a href="" class="text-info">Delete</a></td>

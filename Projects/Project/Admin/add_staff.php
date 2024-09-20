@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Department</title>
+    <title>Add Staff</title>
     <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
 
     <!-- Favicon -->
@@ -43,7 +43,7 @@
             <nav class="hk-breadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-light bg-transparent">
                     <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Teacher</li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Staff</li>
                 </ol>
             </nav>
             <!-- /Breadcrumb -->
@@ -53,7 +53,7 @@
 
                 <!-- Title -->
                 <div class="hk-pg-header">
-                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Add Teacher</h4>
+                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Add Staff</h4>
                 </div>
                 <!-- /Title -->
 
@@ -62,13 +62,13 @@
                     <div class="col-xl-12">
 
                         <section class="hk-sec-wrapper">
-                            <h5 class="hk-sec-title">Add Teacher</h5>
+                            <h5 class="hk-sec-title">Add Staff</h5>
                             <div class="row">
                                 <div class="col-lg-8 offset-2">
                                     <div class="card">
                                         <div class="card-body">
 
-                                            <h4 class="mt-0 header-title">Teacher Entry Form</h4>
+                                            <h4 class="mt-0 header-title">Staff Entry Form</h4>
                                             <?php
                                             if (isset($_POST['submit'])) {
                                                 extract($_POST);
@@ -77,11 +77,11 @@
 
                                                 $photo_name = $_FILES['photo']['name'];
                                                 $photo_tname = $_FILES['photo']['tmp_name'];
-                                                $path = "image/teacher/";
+                                                $path = "image/staff/";
                                                 $url = $path . $photo_name;
 
                                                 if (move_uploaded_file($photo_tname, $path . $photo_name)) {
-                                                    $db->query("INSERT INTO teachers(id, name, department, photo, address, fees, contact_no, email, password) VALUES (NULL, '$name', '$department', '$photo_name', '$address', '$fees', '$contact', '$email', '$pass')");
+                                                    $db->query("INSERT INTO staff(id, name, sector, photo, contact_no, shift, email, password) VALUES (NULL, '$name', '$sector', '$photo_name', '$contact', '$shift', '$email', '$pass')");
 
                                                     if ($db->affected_rows) {
                                                         echo "INSERTED";
@@ -94,35 +94,29 @@
 
                                             <form class="" action="" method="post" enctype="multipart/form-data">
                                                 <div class="form-group">
-                                                    <label>Department</label>
+                                                    <label>Sector</label>
                                                     <?php
                                                     include_once "dbconfig.php";
-                                                    $sql = $db->query("SELECT department FROM department");
+                                                    $sql = $db->query("SELECT sector FROM sector");
                                                     ?>
-                                                    <select name="department" id="" class="form-control">
+                                                    <select name="sector" id="" class="form-control">
                                                         <option value="">Select One</option>
                                                     <?php while($row = $sql->fetch_assoc()){ ?>
-                                                        <option value="<?php echo $row['department'] ?>"><?php echo $row['department'] ?></option>
+                                                        <option value="<?php echo $row['sector'] ?>"><?php echo $row['sector'] ?></option>
                                                     <?php } ?>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Teacher Name</label>
-                                                    <input type="text" class="form-control" required placeholder="Enter Doctor Name" name="name" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Address</label>
-                                                    <div>
-                                                        <textarea required class="form-control" rows="5" placeholder="Enter Address" name="address"></textarea>
-                                                    </div>
+                                                    <label>Staff Name</label>
+                                                    <input type="text" class="form-control" required placeholder="Enter Name" name="name" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Photo</label>
                                                     <input type="file" class="form-control" name="photo" required />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Teacher Fees</label>
-                                                    <input type="text" class="form-control" required placeholder="Enter Doctor Fees" name="fees" />
+                                                    <label>Shift</label>
+                                                    <input type="text" class="form-control" required placeholder="Enter Shift" name="shift" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Contact Number</label>

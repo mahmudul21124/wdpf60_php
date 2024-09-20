@@ -16,19 +16,9 @@
                     <div class="media-img-wrap">
                     <?
                         include_once "dbconfig.php";
-                        $sql = $db->query("SELECT * FROM admin");
+                        
 
-                        //$sql = $db->query("SELECT * FROM teachers");
-
-                        // if ($_SESSION['utype'] == 1) {
-                        //     $sql = $db->query("SELECT * FROM admin");
-                        // }
-                        // if ($_SESSION['utype'] == 2) {
-                        //     $sql = $db->query("SELECT * FROM teachers");
-                        // }
-                        // if ($_SESSION['utype'] == 3) {
-                        //     $sql = $db->query("SELECT * FROM students");
-                        // }
+                        $sql = $db->query("SELECT name, photo FROM teachers");
                     ?>
                         <div class="avatar">
                             <?php  while($row = $sql->fetch_assoc()){ ?>

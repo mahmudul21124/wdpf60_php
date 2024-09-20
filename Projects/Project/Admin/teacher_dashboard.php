@@ -5,7 +5,7 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
 	header("Location:../signin.php");
 }
 
-if ($_SESSION['utype'] != 1) {
+if ($_SESSION['utype'] != 2) {
 	header("Location:../signin.php");
 }
 ?>
@@ -15,7 +15,7 @@ if ($_SESSION['utype'] != 1) {
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<title>Dashboard</title>
+	<title>Teacher Dashboard</title>
 	<meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
 
 	<!-- css -->
@@ -27,11 +27,11 @@ if ($_SESSION['utype'] != 1) {
 	<div class="hk-wrapper hk-vertical-nav">
 
 		<!-- Top Navbar -->
-		<?php include "parts/top_navbar.php" ?>
+		<?php include "parts/teacher_top_navbar.php" ?>
 		<!-- /Top Navbar -->
 
 		<!-- Vertical Nav -->
-		<?php include "parts/vertical_nav.php" ?>
+		<?php include "parts/teacher_vertical_nav.php" ?>
 		<!-- /Vertical Nav -->
 
 		<!-- Main Content -->
@@ -50,35 +50,13 @@ if ($_SESSION['utype'] != 1) {
 				<!-- Row -->
 				<div class="section-body mt-4">
 					<div class="container-fluid">
-						<div class="row clearfix row-deck">
-							<div class="col-6 col-md-4 col-xl-2">
-								<div class="card">
-									<div class="card-body ribbon">
-										<div class="ribbon-box green" data-toggle="tooltip" title="New Professors"></div>
-										<a href="manage_teacher.php" class="my_sort_cut text-muted">
-											<i class="fa fa-black-tie"></i>
-											<span>Professors</span>
-										</a>
-									</div>
-								</div>
-							</div>
+						<div class="row clearfix row-deck">							
 							<div class="col-6 col-md-4 col-xl-2">
 								<div class="card">
 									<div class="card-body">
 										<a href="manage_student.php" class="my_sort_cut text-muted">
 											<i class="fa fa-user"></i>
 											<span>Students</span>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-6 col-md-4 col-xl-2">
-								<div class="card">
-									<div class="card-body ribbon">
-										<div class="ribbon-box orange" data-toggle="tooltip" title="New Staff"></div>
-										<a href="manage_staff.php" class="my_sort_cut text-muted">
-											<i class="fa fa-users"></i>
-											<span>Staff</span>
 										</a>
 									</div>
 								</div>

@@ -77,11 +77,11 @@
 
                                                 $photo_name = $_FILES['photo']['name'];
                                                 $photo_tname = $_FILES['photo']['tmp_name'];
-                                                $path = "students/";
+                                                $path = "image/student/";
                                                 $url = $path . $photo_name;
 
                                                 if (move_uploaded_file($photo_tname, $path . $photo_name)) {
-                                                    $db->query("INSERT INTO students(id, roll_no, name, parents_name, photo, department, class, gender, dob, contact_no, address,  email, password) VALUES (NULL, $roll_no, '$name', '$pname' '$photo_name', '$department', '$cls', '$gender', '$bdate', '$contact', '$address', '$email', '$pass')");
+                                                    $db->query("INSERT INTO students(id, roll_no, name, parents_name, photo, department, class, gender, dob, contact_no, address, email, password) VALUES (NULL, '$roll_no', '$name', '$pname', '$photo_name', '$department', '$cls', '$gender', '$bdate', '$contact', '$address', '$email', '$pass')");
 
                                                     if ($db->affected_rows) {
                                                         echo "INSERTED";
@@ -129,8 +129,8 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Gender</label><br>
-                                                    Male <input type="radio" class="form-control-m" required  name="gender" value="Male"/>
-                                                    Female <input type="radio" class="form-control-m" required  name="gender" value="Female"/>
+                                                    Male <input type="radio" class="form-control-m" required name="gender" value="Male" />
+                                                    Female <input type="radio" class="form-control-m" required name="gender" value="Female" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Parents Name</label>
@@ -138,7 +138,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Date of Birth</label>
-                                                    <input type="date" class="form-control" required  name="bdate" />
+                                                    <input type="date" class="form-control" required name="bdate" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Contact</label>
