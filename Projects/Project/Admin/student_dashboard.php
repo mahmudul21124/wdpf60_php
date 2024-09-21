@@ -27,11 +27,11 @@ if ($_SESSION['utype'] != 3) {
 	<div class="hk-wrapper hk-vertical-nav">
 
 		<!-- Top Navbar -->
-		<?php include "parts/top_navbar.php" ?>
+		<?php include "parts/student_top_navbar.php" ?>
 		<!-- /Top Navbar -->
 
 		<!-- Vertical Nav -->
-		<?php include "parts/vertical_nav.php" ?>
+		<?php include "parts/student_vertical_nav.php" ?>
 		<!-- /Vertical Nav -->
 
 		<!-- Main Content -->
@@ -50,18 +50,7 @@ if ($_SESSION['utype'] != 3) {
 				<!-- Row -->
 				<div class="section-body mt-4">
 					<div class="container-fluid">
-						<div class="row clearfix row-deck">
-							<div class="col-6 col-md-4 col-xl-2">
-								<div class="card">
-									<div class="card-body ribbon">
-										<div class="ribbon-box green" data-toggle="tooltip" title="New Professors"></div>
-										<a href="manage_teacher.php" class="my_sort_cut text-muted">
-											<i class="fa fa-black-tie"></i>
-											<span>Professors</span>
-										</a>
-									</div>
-								</div>
-							</div>
+						<div class="row clearfix row-deck">							
 							<div class="col-6 col-md-4 col-xl-2">
 								<div class="card">
 									<div class="card-body">
@@ -77,8 +66,8 @@ if ($_SESSION['utype'] != 3) {
 									<div class="card-body ribbon">
 										<div class="ribbon-box orange" data-toggle="tooltip" title="New Staff"></div>
 										<a href="manage_staff.php" class="my_sort_cut text-muted">
-											<i class="fa fa-users"></i>
-											<span>Staff</span>
+											<i class="fa fa-list"></i>
+											<span>Result</span>
 										</a>
 									</div>
 								</div>

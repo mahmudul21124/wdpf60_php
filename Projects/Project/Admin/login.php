@@ -33,10 +33,14 @@
 
     if($usertype==3){
         $sql3 = $db->query("SELECT * FROM students WHERE email='$email' AND password='$password'");
-        if($sql3->num_rows){
+            if($sql3->num_rows){
+            $row = $sql3->fetch_assoc();
             // Session
             $_SESSION['email'] = $email;
             $_SESSION['utype'] = $usertype;
+            $_SESSION['name'] = $row['name'];
+            $_SESSION['name'] = $row['photo'];
+
             // Redirect
             header("Location:student_dashboard.php");
         }

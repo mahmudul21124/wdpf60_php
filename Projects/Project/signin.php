@@ -52,8 +52,8 @@
                                         <label for="username">Email</label>
                                         <input class="form-control" type="text" required="" id="email" name="email" placeholder="Email">
                                     </div>
-                                </div>
-
+                                </div>      
+                                                        
                                 <div class="form-group">
                                     <div class="col-12">
                                         <label for="password">Password</label>

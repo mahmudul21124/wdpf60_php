@@ -1,5 +1,8 @@
 <?php
-//session_start();
+include_once "dbconfig.php";
+session_start();
+$name = $_SESSION['name'];
+//$photo = $_SESSION['photo'];
 ?>
 <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar">
     <a id="navbar_toggle_btn" class="navbar-toggle-btn nav-link-hover" href="javascript:void(0);"><span class="feather-icon"><i data-feather="menu"></i></span></a>
@@ -14,23 +17,19 @@
             <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media">
                     <div class="media-img-wrap">
-                        <?php
-                        include_once "dbconfig.php";
-                        if (isset($_POST['login'])) {
-                            $email = $_POST['email'];
-
-                            $sql = $db->query("SELECT * FROM teachers WHERE email='$email'");
+                    <?php
                         
-                        ?>
+                        //$sql = $db->query("SELECT * FROM students");
+                    ?>
                         <div class="avatar">
-                            <?php while ($row = $sql->fetch_assoc()) { ?>
-                                <img src="image/teacher/<?php echo $row['photo'] ?>" alt="user" class="avatar-img rounded-circle">
+                            <?php  //while($row = $sql->fetch_assoc()){ ?>
+                            <img src="image/admin/<?php //echo $photo; ?>" alt="user" class="avatar-img rounded-circle">
                         </div>
                         <span class="badge badge-success badge-indicator"></span>
                     </div>
                     <div class="media-body">
-                        <span><?php echo $row['name'] ?><i class="zmdi zmdi-chevron-down"></i></span>
-                    <?php }} ?>
+                        <span><?php echo $name; ?><i class="zmdi zmdi-chevron-down"></i></span>
+                        <?php //} ?>
                     </div>
                 </div>
             </a>
@@ -49,7 +48,6 @@
                 <a class="dropdown-item" href="logout.php"><i class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
             </div>
         </li>
-        <a class="dropdown-item" href="logout.php"><i class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
     </ul>
 </nav>
 <form role="search" class="navbar-search">

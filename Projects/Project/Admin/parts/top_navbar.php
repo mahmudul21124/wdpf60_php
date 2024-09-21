@@ -14,25 +14,13 @@
             <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media">
                     <div class="media-img-wrap">
-                    <?
+                    <?php
                         include_once "dbconfig.php";
                         $sql = $db->query("SELECT * FROM admin");
-
-                        //$sql = $db->query("SELECT * FROM teachers");
-
-                        // if ($_SESSION['utype'] == 1) {
-                        //     $sql = $db->query("SELECT * FROM admin");
-                        // }
-                        // if ($_SESSION['utype'] == 2) {
-                        //     $sql = $db->query("SELECT * FROM teachers");
-                        // }
-                        // if ($_SESSION['utype'] == 3) {
-                        //     $sql = $db->query("SELECT * FROM students");
-                        // }
                     ?>
                         <div class="avatar">
                             <?php  while($row = $sql->fetch_assoc()){ ?>
-                            <img src="image/<?php echo $row['photo'] ?>" alt="user" class="avatar-img rounded-circle">
+                            <img src="image/admin/<?php echo $row['photo'] ?>" alt="user" class="avatar-img rounded-circle">
                         </div>
                         <span class="badge badge-success badge-indicator"></span>
                     </div>

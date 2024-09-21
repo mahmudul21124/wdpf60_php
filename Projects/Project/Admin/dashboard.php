@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
-	header("Location:../signin.php");
-}
+    if(!isset($_SESSION['email']) && !isset($_SESSION['utype'])){
+    header("Location:../signin.php");
+    }
 
-if ($_SESSION['utype'] != 1) {
-	header("Location:../signin.php");
-}
+    if($_SESSION['utype']!=1){
+        header("Location:../signin.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
