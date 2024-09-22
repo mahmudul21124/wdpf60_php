@@ -1,9 +1,16 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
+	header("Location:../signin.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Brunette I Data Table</title>
+    <title>Manage Student</title>
     <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
 
     <!-- Favicon -->
@@ -42,7 +49,7 @@
             <nav class="hk-breadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-light bg-transparent">
                     <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Manage_teacher</li>
+                    <li class="breadcrumb-item active" aria-current="page">Manage Student</li>
                 </ol>
             </nav>
             <!-- /Breadcrumb -->
@@ -52,7 +59,7 @@
 
                 <!-- Title -->
                 <div class="hk-pg-header">
-                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Manage_teacher</h4>
+                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Manage Student</h4>
                 </div>
                 <!-- /Title -->
 
@@ -61,7 +68,7 @@
                     <div class="col-xl-12">
                         
                         <section class="hk-sec-wrapper">
-                            <h5 class="hk-sec-title">Manage_teacher</h5>
+                            <h5 class="hk-sec-title">Manage Student</h5>
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="table-wrap">
@@ -71,7 +78,7 @@
                                         $sn = 1;
                                     ?>
 
-                                        <table id="datable_3" class="table table-neon text-info w-100 display">
+                                        <table id="datable_3" class="table table-neon text-default w-100 display">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
@@ -91,7 +98,7 @@
                                             <tbody>
                                             <?php while($row = $sql->fetch_assoc()){ ?>
                                                 <tr>
-                                                    <td><?php echo $row['id'] ?></td>
+                                                    <td><?php echo $sn ?></td>
                                                     <td><?php echo $row['roll_no'] ?></td>
                                                     <td><?php echo $row['name'] ?></td>
                                                     <td><?php echo $row['department'] ?></td>
@@ -102,10 +109,13 @@
                                                     <td><?php echo $row['dob'] ?></td>
                                                     <td><?php echo $row['contact_no'] ?></td>
                                                     <td><?php echo $row['email'] ?></td>
-                                                    <td><a href="" class="text-info">Edit</a> | <a href="" class="text-info">Delete</a></td>
+                                                    <td><a href="admin_student_edit.php?id=<?php echo $row['id'] ?>" class="btn btn-outline-info btn-rounded">Edit</a> | 
+                                                    <a onclick="return confirm('Are you sure to delete?')" href="admin_student_delete.php?did=<?php echo $row['id'] ?>" class="btn btn-outline-danger btn-rounded">Delete</a></td>
                                                 </tr>
-                                            <?php $sn++;
-                                                } ?>
+                                            <?php 
+                                            $sn++;
+                                            } 
+                                            ?>
                                             </tbody>
                                         </table>
                                     </div>

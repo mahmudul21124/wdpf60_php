@@ -15,7 +15,7 @@ session_start();
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<title>Dashboard</title>
+	<title>Admin Dashboard</title>
 	<meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
 
 	<!-- css -->
@@ -370,7 +370,7 @@ session_start();
 													$sn = 1;
 													?>
 
-													<table id="datable_3" class="table table-neon text-info w-100 display">
+													<table id="datable_3" class="table table-neon text-default w-100 display">
 														<thead>
 															<tr>
 																<th>ID</th>
@@ -384,13 +384,12 @@ session_start();
 																<th>Date of Birth</th>
 																<th>Contact</th>
 																<th>Email</th>
-																<th>Action</th>
 															</tr>
 														</thead>
 														<tbody>
 															<?php while ($row = $sql->fetch_assoc()) { ?>
 																<tr>
-																	<td><?php echo $row['id'] ?></td>
+																	<td><?php echo $sn ?></td>
 																	<td><?php echo $row['roll_no'] ?></td>
 																	<td><?php echo $row['name'] ?></td>
 																	<td><?php echo $row['department'] ?></td>
@@ -401,7 +400,6 @@ session_start();
 																	<td><?php echo $row['dob'] ?></td>
 																	<td><?php echo $row['contact_no'] ?></td>
 																	<td><?php echo $row['email'] ?></td>
-																	<td><a href="" class="text-info">Edit</a> | <a href="" class="text-info">Delete</a></td>
 																</tr>
 															<?php $sn++;
 															} ?>

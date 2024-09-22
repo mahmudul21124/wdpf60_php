@@ -11,7 +11,7 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Add Staff</title>
+    <title>Edit Student</title>
     <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
 
     <!-- Favicon -->
@@ -37,11 +37,11 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
     <div class="hk-wrapper hk-vertical-nav">
 
         <!-- Top Navbar -->
-        <?php include "parts/top_navbar.php" ?>
+        <?php include "parts/teacher_top_navbar.php" ?>
         <!-- /Top Navbar -->
 
         <!-- Vertical Nav -->
-        <?php include "parts/vertical_nav.php" ?>
+        <?php include "parts/teacher_vertical_nav.php" ?>
         <!-- /Vertical Nav -->
 
         <!-- Main Content -->
@@ -50,7 +50,7 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
             <nav class="hk-breadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-light bg-transparent">
                     <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Staff</li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Student</li>
                 </ol>
             </nav>
             <!-- /Breadcrumb -->
@@ -60,7 +60,7 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
 
                 <!-- Title -->
                 <div class="hk-pg-header">
-                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Add Staff</h4>
+                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Edit Student</h4>
                 </div>
                 <!-- /Title -->
 
@@ -69,80 +69,112 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
                     <div class="col-xl-12">
 
                         <section class="hk-sec-wrapper">
-                            <h5 class="hk-sec-title">Add Staff</h5>
+                            <h5 class="hk-sec-title">Edit Student</h5>
                             <div class="row">
                                 <div class="col-lg-8 offset-2">
                                     <div class="card">
                                         <div class="card-body">
 
-                                            <h4 class="mt-0 header-title">Staff Entry Form</h4>
+                                            <h4 class="mt-0 header-title">Student Edit Form</h4>
                                             <?php
+                                            include_once "dbconfig.php";
+                                            $id = $_REQUEST['id'];
+                                            
                                             if (isset($_POST['submit'])) {
                                                 extract($_POST);
 
-                                                include_once "dbconfig.php";
+                                                
 
-                                                $photo_name = $_FILES['photo']['name'];
-                                                $photo_tname = $_FILES['photo']['tmp_name'];
-                                                $path = "image/staff/";
-                                                $url = $path . $photo_name;
+                                                
+                                                    $sq = "UPDATE students SET roll_no='$roll_no', name='$name', parents_name='$pname', department='$department', class='$cls', gender='$gender', dob='$bdate', contact_no='$contact', address='$address', email='$email' WHERE id='$id'";
 
-                                                if (move_uploaded_file($photo_tname, $path . $photo_name)) {
-                                                    $db->query("INSERT INTO staff(id, name, sector, photo, contact_no, shift, email, password) VALUES (NULL, '$name', '$sector', '$photo_name', '$contact', '$shift', '$email', '$pass')");
+                                                    $update = mysqli_query($db,$sq);
 
-                                                    if ($db->affected_rows) {
-                                                        echo "INSERTED";
+                                                    if ($update) {
+                                                        echo "UPDATED";
                                                     }
-                                                }
                                             }
+
+                                            $sql = $db->query("SELECT * FROM students WHERE id='$id'");
+                                            $result = $sql->fetch_assoc();
+                                            
                                             ?>
 
                                             <p class="sub-title"></p>
 
                                             <form class="" action="" method="post" enctype="multipart/form-data">
-                                                <div class="form-group">
-                                                    <label>Sector</label>
+
+                                            <div class="form-group">
+                                                    <label>Department</label>
                                                     <?php
                                                     include_once "dbconfig.php";
-                                                    $sql = $db->query("SELECT sector FROM sector");
+                                                    $sql = $db->query("SELECT department FROM department");
                                                     ?>
-                                                    <select name="sector" id="" class="form-control">
-                                                        <option value="">Select One</option>
+                                                    <select name="department" id="" class="form-control" selected>
+                                                        <option value=""><?php echo $result['department'] ?></option>
                                                     <?php while($row = $sql->fetch_assoc()){ ?>
-                                                        <option value="<?php echo $row['sector'] ?>"><?php echo $row['sector'] ?></option>
+                                                        <option value="<?php echo $row['department'] ?>"><?php echo $row['department'] ?></option>
                                                     <?php } ?>
                                                     </select>
                                                 </div>
+
                                                 <div class="form-group">
-                                                    <label>Staff Name</label>
-                                                    <input type="text" class="form-control" required placeholder="Enter Name" name="name" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Photo</label>
-                                                    <input type="file" class="form-control" name="photo" required />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Shift</label>
-                                                    <input type="text" class="form-control" required placeholder="Enter Shift" name="shift" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Contact Number</label>
-                                                    <input type="text" class="form-control" required placeholder="Enter Contact Number" name="contact" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Email</label>
-                                                    <input type="email" class="form-control" required placeholder="Enter Email" name="email" />
+                                                    <label>Student Name</label>
+                                                    <input type="text" class="form-control" required placeholder="Enter Students Name" name="name" value="<?php echo $result['name'] ?>"/>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label>Password</label>
+                                                    <label>Roll No</label>
+                                                    <input type="text" class="form-control" required placeholder="Enter Roll No" name="roll_no" value="<?php echo $result['roll_no'] ?>"/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Class</label>
+                                                    <?php
+                                                    include_once "dbconfig.php";
+                                                    $sql = $db->query("SELECT class FROM class");
+                                                    ?>
+                                                    <select name="cls" id="" class="form-control">
+                                                        <option value=""><?php echo $result['class'] ?></option>
+                                                        <?php while ($row = $sql->fetch_assoc()) { ?>
+                                                            <option value="<?php echo $row['class'] ?>"><?php echo $row['class'] ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label>Gender</label><br>
+                                                    Male <input type="radio" class="form-control-m" required name="gender" value="Male" <?php if($result['gender'] == 'Male') echo 'checked'; ?>/>
+                                                    Female <input type="radio" class="form-control-m" required name="gender" value="Female" <?php if($result['gender'] == 'Female') echo 'checked'; ?>/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Parents Name</label>
+                                                    <input type="text" class="form-control" required placeholder="Enter Parents Name" name="pname" value="<?php echo $result['parents_name'] ?>"/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Date of Birth</label>
+                                                    <input type="date" class="form-control" required name="bdate" value="<?php echo $result['dob'] ?>"/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Contact</label>
+                                                    <input type="text" class="form-control" required placeholder="Enter Contact Number" name="contact" value="<?php echo $result['contact_no'] ?>"/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Address</label>
                                                     <div>
-                                                        <input type="password" id="pass2" class="form-control" required placeholder="Password" name="pass" />
-                                                    </div>
-                                                    <div class="mt-2">
-                                                        <input type="password" class="form-control" required data-parsley-equalto="#pass2" name="repeatpass" placeholder="Re-Type Password" />
+                                                        <textarea required class="form-control" rows="5" placeholder="Enter Address" name="address"> <?php echo $result['address'] ?></textarea>
                                                     </div>
                                                 </div>
+
+                                                <div class="form-group">
+                                                    <label>Email</label>
+                                                    <input type="email" class="form-control" required placeholder="Enter Email address" name="email" value="<?php echo $result['email'] ?>"/>
+                                                </div>
+                                                
                                                 <div class="form-group mb-0">
                                                     <div>
                                                         <button type="submit" name="submit" class="btn btn-primary waves-effect waves-light">

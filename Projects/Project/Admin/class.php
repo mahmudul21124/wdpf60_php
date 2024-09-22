@@ -1,9 +1,16 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
+	header("Location:../signin.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Department</title>
+    <title>Class</title>
     <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
 
     <!-- Favicon -->
@@ -42,7 +49,7 @@
             <nav class="hk-breadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-light bg-transparent">
                     <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Department</li>
+                    <li class="breadcrumb-item active" aria-current="page">Class</li>
                 </ol>
             </nav>
             <!-- /Breadcrumb -->
@@ -52,7 +59,7 @@
 
                 <!-- Title -->
                 <div class="hk-pg-header">
-                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Department</h4>
+                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Class</h4>
                 </div>
                 <!-- /Title -->
 
@@ -61,7 +68,7 @@
                     <div class="col-xl-12">
                         
                         <section class="hk-sec-wrapper">
-                            <h5 class="hk-sec-title">Department</h5>
+                            <h5 class="hk-sec-title">Class</h5>
                             <div class="row">
                                 <div class="col-sm">
                                  <?php  
@@ -70,12 +77,11 @@
                                  ?>
                                     
                                 <div class="table-wrap">
-                                        <table id="datable_3" class="table table-neon text-info w-100 display">
+                                        <table id="datable_3" class="table table-neon text-default w-100 display">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Class</th>
-                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -83,7 +89,6 @@
                                                 <tr>
                                                     <td><?php echo $row['id'] ?></td>
                                                     <td><?php echo $row['class'] ?></td>
-                                                    <td class="text-center"><a href="" class="text-info">Edit</a> | <a href="" class="text-info">Delete</a></td>
                                                 </tr>
                                             <?php } ?>
                                             </tbody>

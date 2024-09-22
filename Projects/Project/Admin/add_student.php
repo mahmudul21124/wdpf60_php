@@ -1,10 +1,17 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
+	header("Location:../signin.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Department</title>
+    <title>Add Student</title>
     <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
 
     <!-- Favicon -->
@@ -43,7 +50,7 @@
             <nav class="hk-breadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-light bg-transparent">
                     <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Teacher</li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Student</li>
                 </ol>
             </nav>
             <!-- /Breadcrumb -->
@@ -53,7 +60,7 @@
 
                 <!-- Title -->
                 <div class="hk-pg-header">
-                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Add Teacher</h4>
+                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Add Student</h4>
                 </div>
                 <!-- /Title -->
 
@@ -62,7 +69,7 @@
                     <div class="col-xl-12">
 
                         <section class="hk-sec-wrapper">
-                            <h5 class="hk-sec-title">Add Teacher</h5>
+                            <h5 class="hk-sec-title">Add Student</h5>
                             <div class="row">
                                 <div class="col-lg-8 offset-2">
                                     <div class="card">

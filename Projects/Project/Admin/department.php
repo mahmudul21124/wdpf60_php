@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
+	header("Location:../signin.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,12 +77,11 @@
                                  ?>
                                     
                                 <div class="table-wrap">
-                                        <table id="datable_3" class="table table-neon text-info w-100 display">
+                                        <table id="datable_3" class="table table-neon text-default w-100 display">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Department</th>
-                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -83,7 +89,6 @@
                                                 <tr>
                                                     <td><?php echo $row['id'] ?></td>
                                                     <td><?php echo $row['department'] ?></td>
-                                                    <td class="text-center"><a href="" class="text-info">Edit</a> | <a href="" class="text-info">Delete</a></td>
                                                 </tr>
                                             <?php } ?>
                                             </tbody>

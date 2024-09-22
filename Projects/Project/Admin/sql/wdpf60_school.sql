@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2024 at 09:28 PM
+-- Generation Time: Sep 22, 2024 at 08:25 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `photo`, `email`, `password`, `updationDate`) VALUES
-(1, 'Admin', 'admin.jpg', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', '2024-09-20 19:14:25');
+(1, 'Admin', 'admin.png', 'admin@gmail.com', 'admin', '2024-09-22 12:48:11');
 
 -- --------------------------------------------------------
 
@@ -174,8 +174,9 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `roll_no`, `name`, `parents_name`, `photo`, `department`, `class`, `gender`, `dob`, `contact_no`, `address`, `email`, `password`, `creationDate`, `updationDate`) VALUES
-(1, 'ch-1001', 'Kazi Iftekher ', 'Kazi Iqbal', '', 'Chemistry', 'Six', 'Male', '2024-09-01', '01988761123', 'Sonarga, Narayanganj', 'iftekher@gmail.com', '5321121179b9c8f51b6514fe2f856989', '2024-09-14 19:21:21', NULL),
-(2, 'B-1001', 'Jamil Hossain', 'Hossain', 'jamil.jpeg', 'Biology', 'Ten', 'Male', '2024-09-04', '4333343453', 'Madaripur', 'jamil@gmail.com', 'jamil', '2024-09-20 16:05:40', NULL);
+(1, 'ch-1001', 'Kazi Iftekher ', 'Kazi Iqbal', '', 'Chemistry', 'Six', 'Male', '2024-09-01', '01988761123', 'Sonarga, Narayanganj', 'iftekher@gmail.com', 'iftekher', '2024-09-22 12:47:59', NULL),
+(2, 'B-1001', 'Jamil Hossain', 'Hossain', 'jamil.jpeg', 'Biology', 'Ten', 'Male', '2024-09-04', '4333343453', 'Madaripur', 'jamil@gmail.com', 'jamil', '2024-09-20 16:05:40', NULL),
+(4, 'P-1001', 'Rummana', 'Hossain', 'rummana.jpeg', 'Physics', 'Nine', 'Female', '2024-09-03', '234523145213', 'ukyguguyggy', 'rummana@gmail.com', 'rummana', '2024-09-22 18:19:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -202,11 +203,9 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`id`, `name`, `department`, `photo`, `address`, `fees`, `contact_no`, `email`, `password`, `creationDate`, `updationDate`) VALUES
-(1, 'Saif Jahan', 'Bangla', 'unknown1.jpg', 'Puran Dhaka', '12345', '01988761123', 'saif@gmail.com', '44c099ff522cd529ade21a9c7aa54ebf', '2024-09-20 15:30:45', NULL),
-(2, 'Mohiuddin', 'Management', 'mohiuddin.jpeg', 'English', '54326', '01234234233', 'mohiuddin@gmail.com', '3f3c29591fe4d68cd9161c974313249e', '2024-09-20 15:31:33', NULL),
-(3, 'Mahmudul Hasan', 'Math', 'mahmudul.jpeg', 'Dhaka', '56241', '0198867432864832', 'mahmud@gmail.com', 'mahmud', '2024-09-20 15:32:16', NULL),
-(4, 'Nusrat Jahan Hafsa', 'English', 'nusrat.jpeg', 'Demra', '56241', '234523145213', 'hafsa@gmail.com', '123', '2024-09-20 15:33:56', NULL),
-(5, 'Sadia', 'English', 'unknown2.jpg', 'sfsadfa', '56241', '4333343453', 'sadia@gmail.com', '123', '2024-09-20 15:34:09', NULL),
+(1, 'Saif Jahan', 'Bangla', 'unknown1.jpg', 'Puran Dhaka', '12345', '01988761123', 'saif@gmail.com', 'saif', '2024-09-22 12:47:32', NULL),
+(2, 'Mohiuddin', 'English', 'mohiuddin.jpeg', 'English', '54326', '01234234233', 'mohiuddin@gmail.com', 'mohiuddin', '2024-09-22 16:32:26', NULL),
+(5, 'Sadia', 'English', 'unknown2.jpg', 'sfsadfa', '56241', '4333343453', 'sadia@gmail.com', 'sadia', '2024-09-22 12:47:46', NULL),
 (6, 'Syed Ziaul Habib', 'Biology', 'syed_sir.jpeg', 'Doyaganj', '76301', '01986735825', 'roobon@gmail.com', 'roobon', '2024-09-20 15:39:50', NULL),
 (7, 'Moshaidul Islam ', 'Chemistry', 'moshaidul_sir.jpg', 'Agargao', '76301', '01876327863', 'moshaidul@gmail.com', 'moshaidul', '2024-09-20 15:42:19', NULL);
 
@@ -294,7 +293,7 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `teachers`

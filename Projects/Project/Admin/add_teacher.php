@@ -1,10 +1,17 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
+	header("Location:../signin.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Department</title>
+    <title>Add Teacher</title>
     <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
 
     <!-- Favicon -->

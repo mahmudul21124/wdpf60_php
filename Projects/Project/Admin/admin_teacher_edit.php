@@ -11,7 +11,7 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Add Staff</title>
+    <title>Edit Teacher</title>
     <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
 
     <!-- Favicon -->
@@ -50,7 +50,7 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
             <nav class="hk-breadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-light bg-transparent">
                     <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Staff</li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Teacher</li>
                 </ol>
             </nav>
             <!-- /Breadcrumb -->
@@ -60,7 +60,7 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
 
                 <!-- Title -->
                 <div class="hk-pg-header">
-                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Add Staff</h4>
+                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Edit Teacher</h4>
                 </div>
                 <!-- /Title -->
 
@@ -69,80 +69,79 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
                     <div class="col-xl-12">
 
                         <section class="hk-sec-wrapper">
-                            <h5 class="hk-sec-title">Add Staff</h5>
+                            <h5 class="hk-sec-title">Edit Teacher</h5>
                             <div class="row">
                                 <div class="col-lg-8 offset-2">
                                     <div class="card">
                                         <div class="card-body">
 
-                                            <h4 class="mt-0 header-title">Staff Entry Form</h4>
+                                            <h4 class="mt-0 header-title">Teacher Edit Form</h4>
                                             <?php
+                                            include_once "dbconfig.php";
+
+                                             $id = $_REQUEST['id'];
+
                                             if (isset($_POST['submit'])) {
                                                 extract($_POST);
 
-                                                include_once "dbconfig.php";
+                                               
+                                               $sq= "UPDATE teachers SET name='$name', department='$department',  address='$address', fees='$fees', contact_no='$contact', email='$email' WHERE id='$id'";
 
-                                                $photo_name = $_FILES['photo']['name'];
-                                                $photo_tname = $_FILES['photo']['tmp_name'];
-                                                $path = "image/staff/";
-                                                $url = $path . $photo_name;
+                                               $update = mysqli_query($db,$sq);
 
-                                                if (move_uploaded_file($photo_tname, $path . $photo_name)) {
-                                                    $db->query("INSERT INTO staff(id, name, sector, photo, contact_no, shift, email, password) VALUES (NULL, '$name', '$sector', '$photo_name', '$contact', '$shift', '$email', '$pass')");
-
-                                                    if ($db->affected_rows) {
-                                                        echo "INSERTED";
-                                                    }
-                                                }
+                                                    if ($update) {
+                                                        echo "UPDATED";
+                                                    }  
                                             }
+
+                                            $sql = $db->query("SELECT * FROM teachers WHERE id='$id'");
+                                            $result = $sql->fetch_assoc();
+
                                             ?>
 
                                             <p class="sub-title"></p>
 
-                                            <form class="" action="" method="post" enctype="multipart/form-data">
-                                                <div class="form-group">
-                                                    <label>Sector</label>
+                                            <form class="" action="" method="post" >
+                                            <div class="form-group">
+                                                    <label>Department</label>
                                                     <?php
                                                     include_once "dbconfig.php";
-                                                    $sql = $db->query("SELECT sector FROM sector");
+                                                    $sql = $db->query("SELECT department FROM department");
                                                     ?>
-                                                    <select name="sector" id="" class="form-control">
-                                                        <option value="">Select One</option>
+                                                    <select name="department" id="" class="form-control" selected>
+                                                        <option value=""><?php echo $result['department'] ?></option>
                                                     <?php while($row = $sql->fetch_assoc()){ ?>
-                                                        <option value="<?php echo $row['sector'] ?>"><?php echo $row['sector'] ?></option>
+                                                        <option value="<?php echo $row['department'] ?>"><?php echo $row['department'] ?></option>
                                                     <?php } ?>
                                                     </select>
                                                 </div>
+
+
                                                 <div class="form-group">
-                                                    <label>Staff Name</label>
-                                                    <input type="text" class="form-control" required placeholder="Enter Name" name="name" />
+                                                    <label>Teacher Name</label>
+                                                    <input type="text" class="form-control" name="name" value="<?php echo $result['name'] ?>" required   />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Photo</label>
-                                                    <input type="file" class="form-control" name="photo" required />
+                                                    <label>Address</label>
+                                                    <div>
+                                                        <textarea required class="form-control" rows="5" placeholder="Enter Address" name="address"><?php echo $result['address'] ?></textarea>
+                                                    </div>
                                                 </div>
+                                                
                                                 <div class="form-group">
-                                                    <label>Shift</label>
-                                                    <input type="text" class="form-control" required placeholder="Enter Shift" name="shift" />
+                                                    <label>Teacher Fees</label>
+                                                    <input type="text" class="form-control" required placeholder="Enter Doctor Fees" name="fees" value="<?php echo $result['fees'] ?>"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Contact Number</label>
-                                                    <input type="text" class="form-control" required placeholder="Enter Contact Number" name="contact" />
+                                                    <input type="text" class="form-control" required placeholder="Enter Contact Number" name="contact" value="<?php echo $result['contact_no'] ?>"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Email</label>
-                                                    <input type="email" class="form-control" required placeholder="Enter Email" name="email" />
+                                                    <input type="email" class="form-control" required placeholder="Enter Email" name="email" value="<?php echo $result['email'] ?>"/>
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label>Password</label>
-                                                    <div>
-                                                        <input type="password" id="pass2" class="form-control" required placeholder="Password" name="pass" />
-                                                    </div>
-                                                    <div class="mt-2">
-                                                        <input type="password" class="form-control" required data-parsley-equalto="#pass2" name="repeatpass" placeholder="Re-Type Password" />
-                                                    </div>
-                                                </div>
+                                                
                                                 <div class="form-group mb-0">
                                                     <div>
                                                         <button type="submit" name="submit" class="btn btn-primary waves-effect waves-light">

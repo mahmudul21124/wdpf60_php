@@ -4,7 +4,7 @@
         <div class="navbar-nav-wrap">
             <ul class="navbar-nav flex-column">
                 <li class="nav-item active">
-                        <span class="nav-link"><a class="nav-link" href="dashboard.php">Dahsboard</a></span>
+                        <span class="nav-link"><a class="nav-link" href="teacher_dashboard.php">Dahsboard</a></span>
                     </a>
                 </li>
 
@@ -18,13 +18,13 @@
                         <li class="nav-item">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="class.php">Class &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-black-tie"></i></a>
+                                    <a class="nav-link" href="teacher_class.php">Class &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-black-tie"></i></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="add_student.php">Add Student &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="feather-icon "><i data-feather="user-plus"></i></span></a>
+                                    <a class="nav-link" href="teacher_add_student.php">Add Student &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="feather-icon "><i data-feather="user-plus"></i></span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="manage_student.php">Manage Student&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="feather-icon "><i data-feather="user-check"></i></span></a>
+                                    <a class="nav-link" href="teacher_manage_student.php">Manage Student&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="feather-icon "><i data-feather="user-check"></i></span></a>
                                 </li>
                             </ul>
                         </li>

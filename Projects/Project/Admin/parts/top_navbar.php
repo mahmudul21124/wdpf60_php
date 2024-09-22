@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 ?>
 <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar">
     <a id="navbar_toggle_btn" class="navbar-toggle-btn nav-link-hover" href="javascript:void(0);"><span class="feather-icon"><i data-feather="menu"></i></span></a>
@@ -14,19 +14,13 @@
             <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media">
                     <div class="media-img-wrap">
-                    <?php
-                        include_once "dbconfig.php";
-                        $sql = $db->query("SELECT * FROM admin");
-                    ?>
                         <div class="avatar">
-                            <?php  while($row = $sql->fetch_assoc()){ ?>
-                            <img src="image/admin/<?php echo $row['photo'] ?>" alt="user" class="avatar-img rounded-circle">
+                            <img src="image/admin/<?php echo $_SESSION['photo'] ?>" alt="user" class="avatar-img rounded-circle">
                         </div>
                         <span class="badge badge-success badge-indicator"></span>
                     </div>
                     <div class="media-body">
-                        <span><?php echo $row['name'] ?><i class="zmdi zmdi-chevron-down"></i></span>
-                        <?php } ?>
+                        <span><?php echo $_SESSION['name'] ?><i class="zmdi zmdi-chevron-down"></i></span>
                     </div>
                 </div>
             </a>
@@ -45,6 +39,7 @@
                 <a class="dropdown-item" href="logout.php"><i class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
             </div>
         </li>
+        <a class="dropdown-item" href="logout.php"><i class="dropdown-icon zmdi zmdi-power"></i><span></span></a>
     </ul>
 </nav>
 <form role="search" class="navbar-search">

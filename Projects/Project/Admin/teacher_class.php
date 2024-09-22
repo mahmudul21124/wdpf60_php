@@ -10,7 +10,7 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Manage Staff</title>
+    <title>Class</title>
     <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
 
     <!-- Favicon -->
@@ -36,11 +36,11 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
 	<div class="hk-wrapper hk-vertical-nav">
 
         <!-- Top Navbar -->
-        <?php include "parts/top_navbar.php" ?>
+        <?php include "parts/teacher_top_navbar.php" ?>
         <!-- /Top Navbar -->
 
         <!-- Vertical Nav -->
-        <?php include "parts/vertical_nav.php" ?>
+        <?php include "parts/teacher_vertical_nav.php" ?>
         <!-- /Vertical Nav -->
  
         <!-- Main Content -->
@@ -49,17 +49,17 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
             <nav class="hk-breadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-light bg-transparent">
                     <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Manage Staff</li>
+                    <li class="breadcrumb-item active" aria-current="page">Class</li>
                 </ol>
             </nav>
             <!-- /Breadcrumb -->
 
             <!-- Container -->
-            <div class="container-fluid">
+            <div class="container">
 
                 <!-- Title -->
                 <div class="hk-pg-header">
-                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Manage Staff</h4>
+                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Class</h4>
                 </div>
                 <!-- /Title -->
 
@@ -68,41 +68,29 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
                     <div class="col-xl-12">
                         
                         <section class="hk-sec-wrapper">
-                            <h5 class="hk-sec-title">Manage Staff</h5>
+                            <h5 class="hk-sec-title">Class</h5>
                             <div class="row">
                                 <div class="col-sm">
-                                    <div class="table-wrap">
-                                    <?php 
-                                        include_once "dbconfig.php";
-                                        $sql = $db->query("SELECT * FROM staff");
-                                        $sn = 1;
-                                    ?>
-
+                                 <?php  
+                                    include_once "dbconfig.php";
+                                    $sql = $db->query("SELECT * FROM class");
+                                 ?>
+                                    
+                                <div class="table-wrap">
                                         <table id="datable_3" class="table table-neon text-default w-100 display">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Staff Name</th>
-                                                    <th>Sector</th>
-                                                    <th>Shift</th>
-                                                    <th>Contact</th>
-                                                    <th>Email</th>
-                                                    <th>Action</th>
+                                                    <th>Class</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             <?php while($row = $sql->fetch_assoc()){ ?>
                                                 <tr>
-                                                    <td><?php echo $sn ?></td>
-                                                    <td><?php echo $row['name'] ?></td>
-                                                    <td><?php echo $row['sector'] ?></td>
-                                                    <td><?php echo $row['shift'] ?></td>
-                                                    <td><?php echo $row['contact_no'] ?></td>
-                                                    <td><?php echo $row['email'] ?></td>
-                                                    <td><a href="" class="btn btn-outline-info btn-rounded">Edit</a> | <a href="" class="btn btn-outline-danger btn-rounded">Delete</a></td>
+                                                    <td><?php echo $row['id'] ?></td>
+                                                    <td><?php echo $row['class'] ?></td>
                                                 </tr>
-                                            <?php $sn++;
-                                                    } ?>
+                                            <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>

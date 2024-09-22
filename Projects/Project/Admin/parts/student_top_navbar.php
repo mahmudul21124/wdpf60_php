@@ -1,12 +1,9 @@
 <?php
-include_once "dbconfig.php";
 session_start();
-$name = $_SESSION['name'];
-//$photo = $_SESSION['photo'];
 ?>
 <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar">
     <a id="navbar_toggle_btn" class="navbar-toggle-btn nav-link-hover" href="javascript:void(0);"><span class="feather-icon"><i data-feather="menu"></i></span></a>
-    <a class="navbar-brand" href="dashboard.php">
+    <a class="navbar-brand" href="student_dashboard.php">
         <img class="brand-img d-inline-block" src="../images/logo3.png" alt="brand" />
     </a>
     <ul class="navbar-nav hk-navbar-content">
@@ -17,19 +14,13 @@ $name = $_SESSION['name'];
             <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media">
                     <div class="media-img-wrap">
-                    <?php
-                        
-                        //$sql = $db->query("SELECT * FROM students");
-                    ?>
                         <div class="avatar">
-                            <?php  //while($row = $sql->fetch_assoc()){ ?>
-                            <img src="image/admin/<?php //echo $photo; ?>" alt="user" class="avatar-img rounded-circle">
+                            <img src="image/admin/<?php echo $_SESSION['photo']; ?>" alt="user" class="avatar-img rounded-circle">
                         </div>
                         <span class="badge badge-success badge-indicator"></span>
                     </div>
                     <div class="media-body">
-                        <span><?php echo $name; ?><i class="zmdi zmdi-chevron-down"></i></span>
-                        <?php //} ?>
+                        <span><?php echo $_SESSION['name']; ?><i class="zmdi zmdi-chevron-down"></i></span>
                     </div>
                 </div>
             </a>
@@ -48,6 +39,7 @@ $name = $_SESSION['name'];
                 <a class="dropdown-item" href="logout.php"><i class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
             </div>
         </li>
+        <a class="dropdown-item" href="logout.php"><i class="dropdown-icon zmdi zmdi-power"></i><span></span></a>
     </ul>
 </nav>
 <form role="search" class="navbar-search">

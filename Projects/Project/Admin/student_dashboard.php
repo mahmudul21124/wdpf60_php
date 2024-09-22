@@ -54,7 +54,7 @@ if ($_SESSION['utype'] != 3) {
 							<div class="col-6 col-md-4 col-xl-2">
 								<div class="card">
 									<div class="card-body">
-										<a href="manage_student.php" class="my_sort_cut text-muted">
+										<a href="student_manage_student.php" class="my_sort_cut text-muted">
 											<i class="fa fa-user"></i>
 											<span>Students</span>
 										</a>
@@ -65,7 +65,7 @@ if ($_SESSION['utype'] != 3) {
 								<div class="card">
 									<div class="card-body ribbon">
 										<div class="ribbon-box orange" data-toggle="tooltip" title="New Staff"></div>
-										<a href="manage_staff.php" class="my_sort_cut text-muted">
+										<a href="result.php" class="my_sort_cut text-muted">
 											<i class="fa fa-list"></i>
 											<span>Result</span>
 										</a>
@@ -75,7 +75,7 @@ if ($_SESSION['utype'] != 3) {
 							<div class="col-6 col-md-4 col-xl-2">
 								<div class="card">
 									<div class="card-body">
-										<a href="manage_student.php" class="my_sort_cut text-muted">
+										<a href="student_manage_student.php" class="my_sort_cut text-muted">
 											<i class="fa fa-bookmark-o"></i>
 											<span>Contacts</span>
 										</a>
@@ -373,13 +373,12 @@ if ($_SESSION['utype'] != 3) {
 																<th>Date of Birth</th>
 																<th>Contact</th>
 																<th>Email</th>
-																<th>Action</th>
 															</tr>
 														</thead>
 														<tbody>
 															<?php while ($row = $sql->fetch_assoc()) { ?>
 																<tr>
-																	<td><?php echo $row['id'] ?></td>
+																	<td><?php echo $sn ?></td>
 																	<td><?php echo $row['roll_no'] ?></td>
 																	<td><?php echo $row['name'] ?></td>
 																	<td><?php echo $row['department'] ?></td>
@@ -390,7 +389,6 @@ if ($_SESSION['utype'] != 3) {
 																	<td><?php echo $row['dob'] ?></td>
 																	<td><?php echo $row['contact_no'] ?></td>
 																	<td><?php echo $row['email'] ?></td>
-																	<td><a href="" class="text-info">Edit</a> | <a href="" class="text-info">Delete</a></td>
 																</tr>
 															<?php $sn++;
 															} ?>

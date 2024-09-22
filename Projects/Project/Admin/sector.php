@@ -1,9 +1,16 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
+	header("Location:../signin.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Department</title>
+    <title>Sector</title>
     <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
 
     <!-- Favicon -->
@@ -70,12 +77,11 @@
                                  ?>
                                     
                                 <div class="table-wrap">
-                                        <table id="datable_3" class="table table-neon text-info w-100 display">
+                                        <table id="datable_3" class="table table-neon text-default w-100 display">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Sector</th>
-                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -83,7 +89,6 @@
                                                 <tr>
                                                     <td><?php echo $row['id'] ?></td>
                                                     <td><?php echo $row['sector'] ?></td>
-                                                    <td class="text-center"><a href="" class="text-info">Edit</a> | <a href="" class="text-info">Delete</a></td>
                                                 </tr>
                                             <?php } ?>
                                             </tbody>
