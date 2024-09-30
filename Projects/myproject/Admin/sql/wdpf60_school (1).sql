@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2024 at 08:25 PM
+-- Generation Time: Sep 30, 2024 at 10:21 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -92,6 +92,29 @@ INSERT INTO `department` (`id`, `department`, `creationDate`, `updationDate`) VA
 (5, 'English', '2024-09-14 15:34:32', NULL),
 (6, 'Bangla', '2024-09-14 15:34:32', NULL),
 (7, 'Management ', '2024-09-14 15:34:32', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notice`
+--
+
+CREATE TABLE `notice` (
+  `id` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `class` varchar(50) NOT NULL,
+  `massage` varchar(200) NOT NULL,
+  `creationDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updationDate` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `notice`
+--
+
+INSERT INTO `notice` (`id`, `title`, `class`, `massage`, `creationDate`, `updationDate`) VALUES
+(1, 'First', 'Six', 'sdafadsfasd', '2024-09-30 19:50:13', NULL),
+(2, 'First test massage', 'Seven', 'asdfsadfa', '2024-09-30 19:54:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -232,6 +255,12 @@ ALTER TABLE `department`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `notice`
+--
+ALTER TABLE `notice`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sector`
 --
 ALTER TABLE `sector`
@@ -276,6 +305,12 @@ ALTER TABLE `class`
 --
 ALTER TABLE `department`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `notice`
+--
+ALTER TABLE `notice`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sector`
