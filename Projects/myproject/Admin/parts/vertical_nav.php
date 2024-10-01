@@ -4,14 +4,14 @@
         <div class="navbar-nav-wrap">
             <ul class="navbar-nav flex-column">
                 <li class="nav-item active">
-                        <span class="nav-link"><a class="nav-link" href="dashboard.php">Dahsboard</a></span>
+                    <span class="nav-link"><a class="nav-link" href="dashboard.php">Dahsboard</a></span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link link-with-badge" href="javascript:void(0);" data-toggle="collapse" data-target="#app_drp">
-                    <span class="feather-icon"><i data-feather="users"></i></span>
-                    <span class="nav-link-text">Teachers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <span class="feather-icon text-right"><i data-feather="menu"></i></span>
+                        <span class="feather-icon"><i data-feather="users"></i></span>
+                        <span class="nav-link-text">Teachers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="feather-icon text-right"><i data-feather="menu"></i></span>
                     </a>
                     <ul id="app_drp" class="nav flex-column collapse collapse-level-1">
                         <li class="nav-item">
@@ -32,9 +32,9 @@
 
                 <li class="nav-item">
                     <a class="nav-link link-with-badge" href="javascript:void(0);" data-toggle="collapse" data-target="#app_drp">
-                    <span class="feather-icon"><i data-feather="user"></i></span>
-                    <span class="nav-link-text">Students &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <span class="feather-icon text-right"><i data-feather="menu"></i></span>
+                        <span class="feather-icon"><i data-feather="user"></i></span>
+                        <span class="nav-link-text">Students &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="feather-icon text-right"><i data-feather="menu"></i></span>
                     </a>
                     <ul id="app_drp" class="nav flex-column collapse collapse-level-1">
                         <li class="nav-item">
@@ -55,9 +55,9 @@
 
                 <li class="nav-item">
                     <a class="nav-link link-with-badge" href="javascript:void(0);" data-toggle="collapse" data-target="#app_drp">
-                    <span class="feather-icon"><i data-feather="user"></i></span>
-                    <span class="nav-link-text">Staff &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <span class="feather-icon text-right"><i data-feather="menu"></i></span>
+                        <span class="feather-icon"><i data-feather="user"></i></span>
+                        <span class="nav-link-text">Staff &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="feather-icon text-right"><i data-feather="menu"></i></span>
                     </a>
                     <ul id="app_drp" class="nav flex-column collapse collapse-level-1">
                         <li class="nav-item">
@@ -78,14 +78,36 @@
 
                 <li class="nav-item">
                     <a class="nav-link link-with-badge" href="javascript:void(0);" data-toggle="collapse" data-target="#app_drp">
-                    <span class="feather-icon"><i data-feather="bell"></i></span>
-                    <span class="nav-link-text">Notice &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <span class="feather-icon text-right"><i data-feather="menu"></i></span>
+                        <span class="feather-icon"><i data-feather="monitor"></i></span>
+                        <span class="nav-link-text">Attendance &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="feather-icon text-right"><i data-feather="menu"></i></span>
                     </a>
                     <ul id="app_drp" class="nav flex-column collapse collapse-level-1">
                         <li class="nav-item">
                             <ul class="nav flex-column">
-                                
+                            
+                                <li class="nav-item">
+                                    <a class="nav-link" href="add_attendance.php">Add Attendance &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="feather-icon "><i data-feather="plus-circle"></i></span></a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="attendance.php">Attendance&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="feather-icon "><i data-feather="activity"></i></span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link link-with-badge" href="javascript:void(0);" data-toggle="collapse" data-target="#app_drp">
+                        <span class="feather-icon"><i data-feather="bell"></i></span>
+                        <span class="nav-link-text">Notice &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="feather-icon text-right"><i data-feather="menu"></i></span>
+                    </a>
+                    <ul id="app_drp" class="nav flex-column collapse collapse-level-1">
+                        <li class="nav-item">
+                            <ul class="nav flex-column">
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="add_notice.php">Add Notice</a>
                                 </li>
@@ -100,21 +122,21 @@
 
                 <li class="nav-item">
                     <a class="nav-link link-with-badge" href="report.php">
-                    <span class="feather-icon"><i data-feather="flag"></i></span>
-                    <span class="nav-link-text">Reports &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="feather-icon"><i data-feather="flag"></i></span>
+                        <span class="nav-link-text">Reports &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link link-with-badge" href="search.php">
-                    <span class="feather-icon"><i data-feather="search"></i></span>
-                    <span class="nav-link-text">Search &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="feather-icon"><i data-feather="search"></i></span>
+                        <span class="nav-link-text">Search &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     </a>
                 </li>
 
-                
+
             </ul>
-            
+
         </div>
     </div>
 </nav>

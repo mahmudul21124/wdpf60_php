@@ -33,8 +33,8 @@
                     <li class="has-mega gc_main_navigation"><a href="about_us.php" class="gc_main_navigation hover_color">About Us</a>
                     </li>
                     
-                    <!-- <li class="has-mega gc_main_navigation"><a href="notice.php" class="gc_main_navigation hover_color"> Notice</a>
-                    </li> -->
+                    <li class="has-mega gc_main_navigation"><a href="notice.php" class="gc_main_navigation hover_color"> Notice</a>
+                    </li>
 
                     <li class="has-mega gc_main_navigation"><a href="teacher.php" class="gc_main_navigation hover_color"> Teacher</a>
                     </li>

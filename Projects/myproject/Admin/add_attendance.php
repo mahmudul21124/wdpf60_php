@@ -11,7 +11,7 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Add Staff</title>
+    <title>Add Attendance</title>
     <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
 
     <!-- Favicon -->
@@ -50,17 +50,17 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
             <nav class="hk-breadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-light bg-transparent">
                     <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Staff</li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Attendance</li>
                 </ol>
             </nav>
             <!-- /Breadcrumb -->
 
             <!-- Container -->
-            <div class="container">
+            <div class="container-fluid">
 
                 <!-- Title -->
                 <div class="hk-pg-header">
-                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Add Staff</h4>
+                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Add Attendance</h4>
                 </div>
                 <!-- /Title -->
 
@@ -69,20 +69,20 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
                     <div class="col-xl-12">
 
                         <section class="hk-sec-wrapper">
-                            <h5 class="hk-sec-title">Add Staff</h5>
+                            <h5 class="hk-sec-title">Add Attendance</h5>
                             <div class="row">
-                                <div class="col-lg-8 offset-2">
+                                <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
 
-                                            <h4 class="mt-0 header-title">Staff Entry Form</h4>
+                                            <!-- <h4 class="mt-0 header-title">Add Attendance</h4> -->
                                             <?php
                                             if (isset($_POST['submit'])) {
                                                 extract($_POST);
                                                 include_once "dbconfig.php";
 
 
-                                                $db->query("INSERT INTO notice (id, title, class, massage) VALUES (NULL, '$nottitle', '$cls', '$notmsg')");
+                                                $db->query("INSERT INTO attendance (id, name, roll_no, class, status, date) VALUES (NULL, '$name', '$roll_no', '$cls', '$status', '$date')");
 
                                                 if ($db->affected_rows) {
                                                     echo "INSERTED";
@@ -92,15 +92,39 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
 
                                             <p class="sub-title"></p>
 
-                                            <form class="" action="" method="post">
+
+                                            <form class="form-inline" action="" method="post">
 
                                                 <div class="form-group">
-                                                    <label>Notice Title</label>
-                                                    <input type="text" class="form-control" required placeholder="Enter Notice Title" name="nottitle" />
-                                                </div>
+                                                    <label>Students Name: &nbsp;</label>
+                                                    <?php
+                                                    include_once "dbconfig.php";
+                                                    $sql = $db->query("SELECT name FROM students");
+                                                    ?>
+                                                    <select name="name" id="" class="form-control">
+                                                        <option value="">Select One</option>
+                                                        <?php while ($row = $sql->fetch_assoc()) { ?>
+                                                            <option value="<?php echo $row['name'] ?>"><?php echo $row['name'] ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>&nbsp;
 
                                                 <div class="form-group">
-                                                    <label>Notice for</label>
+                                                    <label>Roll No: &nbsp;</label>
+                                                    <?php
+                                                    include_once "dbconfig.php";
+                                                    $sql = $db->query("SELECT roll_no FROM students");
+                                                    ?>
+                                                    <select name="roll_no" id="" class="form-control">
+                                                        <option value="">Select One</option>
+                                                        <?php while ($row = $sql->fetch_assoc()) { ?>
+                                                            <option value="<?php echo $row['roll_no'] ?>"><?php echo $row['roll_no'] ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>&nbsp;
+
+                                                <div class="form-group">
+                                                    <label>Class: &nbsp;</label>
                                                     <?php
                                                     include_once "dbconfig.php";
                                                     $sql = $db->query("SELECT class FROM class");
@@ -111,20 +135,27 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['utype'])) {
                                                             <option value="<?php echo $row['class'] ?>"><?php echo $row['class'] ?></option>
                                                         <?php } ?>
                                                     </select>
-                                                </div>
+                                                </div>&nbsp;
 
                                                 <div class="form-group">
-                                                    <label>Notice Massage</label>
-                                                    <div>
-                                                        <textarea required class="form-control" rows="5" placeholder="Enter Notice massage" name="notmsg"></textarea>
-                                                    </div>
-                                                </div>
+                                                    <label>Status: &nbsp;</label>
+                                                    <select name="status" id="" class="form-control">
+                                                        <option value="">Select One</option>
+                                                            <option value="1">Present</option>
+                                                            <option value="2">Absent</option>
+                                                    </select>
+                                                </div>&nbsp;
+
+                                                <div class="form-group">
+                                                    <label>Date: &nbsp;</label>
+                                                    <input type="date" class="form-control" required name="date" />
+                                                </div>&nbsp;
 
 
                                                 <div class="form-group mb-0">
                                                     <div>
                                                         <button type="submit" name="submit" class="btn btn-primary waves-effect waves-light">
-                                                            Submit
+                                                            Add Attendance
                                                         </button>
                                                         <button type="reset" name="cancel" class="btn btn-secondary waves-effect m-l-5">
                                                             Cancel

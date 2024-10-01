@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Teacher</title>
+	<title>Notice</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<meta name="description" content="Education" />
 	<meta name="keywords" content="Education" />
@@ -44,13 +44,13 @@
 				<div class="row">
 					<!-- section_heading start -->
 					<div class="col-lg-12 col-md-12 col-12 col-sm-12">
-						<h1>Our Teacher </h1>
+						<h1> Notice </h1>
 					</div>
 					<div class="col-lg-12 col-md-12 col-12 col-sm-12">
 						<div class="sub_title_section">
 							<ul class="sub_title">
 								<li> <a href="index.php"> Home </a> &nbsp;&nbsp;&nbsp; &gt; &nbsp;&nbsp;</li>
-								<li> <a href="teacher.php"> Our Teacher </a></li>
+								<li> <a href="notice.php"> Notice </a></li>
 							</ul>
 						</div>
 					</div>
@@ -63,19 +63,33 @@
 	<!--edu team wrapper Start-->
 	<div class="edu_team_main_wrapper edu_team_main_wrapper_inner float_left">
 		<div class="container">
-			<div class="row">
-						<?php
-						include_once "Admin/dbconfig.php";
-						$sql = $db->query("SELECT * FROM notice");
-						while ($row = $sql->fetch_assoc()) {
-						?>
-					<div>
-                        <?php echo $row['massage']. "<br>" ?>
-                    </div>
-				<?php } ?>
-				<div class="col-md-12">
-					<div class="edu_bottom_btn_wrapper float_left"> <a href="#">Read More</a>
-					</div>
+			<div class="table-wrap mb-20">
+				<div class="table-responsive">
+
+					<?php
+					include_once "Admin/dbconfig.php";
+					$sql = $db->query("SELECT * FROM notice");
+					$sn = 1;
+					?>
+					<table class="table table-bordered mb-0">
+						<thead class="bg-info text-dark">
+							<tr>
+								<th>SN</th>
+								<th>Notice</th>
+								<th>Publish Date</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php while ($row = $sql->fetch_assoc()) { ?>
+								<tr>
+									<td><?php echo $sn ?></td>
+									<td><?php echo $row['title'] ?></td>
+									<td><?php echo $row['creationDate'] ?></td>
+								</tr>
+							<?php $sn++;
+							} ?>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>

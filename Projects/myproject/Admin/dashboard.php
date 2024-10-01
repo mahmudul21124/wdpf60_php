@@ -86,9 +86,9 @@ session_start();
 							<div class="col-6 col-md-4 col-xl-2">
 								<div class="card">
 									<div class="card-body">
-										<a href="manage_student.php" class="my_sort_cut text-muted">
-											<i class="fa fa-bookmark-o"></i>
-											<span>Contacts</span>
+										<a href="attendance.php" class="my_sort_cut text-muted">
+										<span class="feather-icon"><i data-feather="monitor"></i></span>
+											<span>Attendance</span>
 										</a>
 									</div>
 								</div>
